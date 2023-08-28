@@ -39,6 +39,9 @@ namespace soundbag {
         return HttpResponse(404);
       }
 
+      inline virtual void onStart(){}
+      inline virtual void onStop(){}
+
     public:
       HttpServer(const std::string& host, int port, const std::string& configFileName = "server_config.json");
 

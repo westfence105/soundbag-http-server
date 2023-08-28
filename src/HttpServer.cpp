@@ -35,9 +35,11 @@ HttpServer::HttpServer(const std::string& host, int port, const std::string& con
 
 void HttpServer::start() {
   m_mainThread = std::async(std::launch::async, std::bind(&HttpServer::serverMain, this));
+  onStart();
 }
 
 void HttpServer::stop() {
+  onStop();
   m_loop.store(false);
   m_mainThread.get();
 }
