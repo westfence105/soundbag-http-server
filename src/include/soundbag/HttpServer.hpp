@@ -28,6 +28,7 @@ namespace soundbag {
 
     protected:
       inline const nlohmann::json& config() const { return m_config;}
+      inline bool is_loop() const { return m_loop.load(); }
 
       HttpResponse handlePage(const std::string& path);
       HttpResponse handleMedia(const std::string& path);
