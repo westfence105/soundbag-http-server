@@ -27,6 +27,8 @@ namespace soundbag {
     void handleConnection(int destSock);
 
     protected:
+      inline const nlohmann::json& config() const { return m_config;}
+
       HttpResponse handlePage(const std::string& path);
       HttpResponse handleMedia(const std::string& path);
       std::string  findMediaLibrary(const std::string& key) const;
