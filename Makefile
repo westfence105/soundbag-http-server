@@ -12,7 +12,7 @@ all: $(BUILDDIR) $(BINDIR) $(BINDIR)/libsoundbag-httpserver.a $(BINDIR)/sample_s
 $(BINDIR)/sample_server$(EXT): $(addprefix $(BUILDDIR)/,sample_main.o) $(BINDIR)/libsoundbag-httpserver.a
 	$(CXX) -o $@ $^ $(LDFLAGS)
 
-$(BINDIR)/libsoundbag-httpserver.a: $(addprefix $(BUILDDIR)/,HttpServer.o HttpRequest.o HttpResponse.o HttpUtil.o)
+$(BINDIR)/libsoundbag-httpserver.a: $(addprefix $(BUILDDIR)/,HttpServer.o HttpRequest.o HttpResponse.o HttpUtil.o StatefulServer.o)
 	$(AR) r $@ $^
 
 $(BUILDDIR):
